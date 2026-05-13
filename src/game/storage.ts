@@ -2,6 +2,11 @@ import { initialGameState, SAVE_KEY } from "./constants";
 import type { GameState } from "./types";
 import { cloneGameState } from "./logic";
 
+/**
+ * ゲーム状態を正規化する
+ * @param value 正規化するゲーム状態の部分的な値
+ * @returns 正規化されたゲーム状態
+ */
 function normalizeGameState(value: Partial<GameState>): GameState {
   return {
     resources: {
@@ -24,6 +29,10 @@ function normalizeGameState(value: Partial<GameState>): GameState {
   };
 }
 
+/**
+ * ゲーム状態をロードする
+ * @returns ロードされたゲーム状態
+ */
 export function loadGame(): GameState {
   try {
     const raw = localStorage.getItem(SAVE_KEY);
@@ -34,6 +43,10 @@ export function loadGame(): GameState {
   }
 }
 
+/**
+ * ゲーム状態を保存する
+ * @param state 保存するゲーム状態
+ */
 export function saveGame(state: GameState): void {
   const nextState = cloneGameState(state);
   nextState.lastSavedAt = new Date().toISOString();
@@ -41,6 +54,9 @@ export function saveGame(state: GameState): void {
   localStorage.setItem(SAVE_KEY, JSON.stringify(nextState));
 }
 
+/**
+ * セーブデータをリセットする
+ */
 export function clearSave(): void {
   localStorage.removeItem(SAVE_KEY);
 }

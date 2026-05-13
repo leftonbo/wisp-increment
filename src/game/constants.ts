@@ -1,11 +1,23 @@
 import type { GameState, ItemDefinition, ItemId, WispStage } from "./types";
 
+/**
+ * セーブデータに用いる localStorage キー
+ */
 export const SAVE_KEY = "wisp-increment-save-v1";
 
+/**
+ * アイテムの表示順
+ */
 export const itemOrder: ItemId[] = ["coal", "marshmallow", "ghost", "medal"];
 
+/**
+ * 「最大購入」ボタンで、どの順番でアイテムを買うか
+ */
 export const buyMaxOrder: ItemId[] = ["medal", "ghost", "marshmallow", "coal"];
 
+/**
+ * アイテムの定義
+ */
 export const itemDefinitions: Record<ItemId, ItemDefinition> = {
   coal: {
     id: "coal",
@@ -49,6 +61,9 @@ export const itemDefinitions: Record<ItemId, ItemDefinition> = {
   },
 };
 
+/**
+ * ウィスプの段階の定義
+ */
 export const wispStages: WispStage[] = [
   { minFire: 0, label: "火の粉", description: "眠そうな小さな光" },
   { minFire: 10, label: "小さな炎", description: "ぷるぷる揺れる青白い炎" },
@@ -62,6 +77,9 @@ export const wispStages: WispStage[] = [
   { minFire: 1e201, label: "数式の外側", description: "表示が少し不穏に揺らぐ" },
 ];
 
+/**
+ * ゲームの初期状態
+ */
 export const initialGameState: GameState = {
   resources: {
     fire: 0,
