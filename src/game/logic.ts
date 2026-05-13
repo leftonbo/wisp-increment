@@ -2,11 +2,6 @@ import { buyMaxOrder, initialGameState, itemDefinitions, itemOrder, wispStages }
 import type { GameState, ItemId, WispStage } from "./types";
 
 /**
- * 基礎生産量
- */
-const BASE_PRODUCTION = 2;
-
-/**
  * ゲームクリアに必要な火の量
  */
 const CLEAR_FIRE = 1e308;
@@ -89,7 +84,7 @@ export function canBuy(state: GameState, itemId: ItemId): boolean {
 export function getItemProduction(state: GameState, itemId: ItemId): number {
   const item = state.items[itemId];
   if (item.count === 0) return 0;
-  return BASE_PRODUCTION * 2 ** item.level * item.count * getPrestigeMultiplier(state);
+  return itemDefinitions[itemId].baseProduction * 2 ** item.level * item.count * getPrestigeMultiplier(state);
 }
 
 /**

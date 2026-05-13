@@ -40,6 +40,7 @@ export type ItemDefinition = {
   emoji: string;
   description: string;
   produces: ResourceId;
+  baseProduction: number;
   baseCost: number;
   costMultiplier: number;
   unlockFire: number;
