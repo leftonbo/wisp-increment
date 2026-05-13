@@ -4,7 +4,7 @@ import type { GameState, ItemId, WispStage } from "./types";
 /**
  * 基礎生産量
  */
-const BASE_PRODUCTION = 1;
+const BASE_PRODUCTION = 2;
 
 /**
  * ゲームクリアに必要な火の量
