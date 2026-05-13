@@ -192,7 +192,15 @@ export function buyMaxAll(state: GameState): number {
  * @returns 次のフロスト獲得量
  */
 export function getNextFrost(state: GameState): number {
-  return Math.floor(Math.max(0, Math.log10(Math.max(1, state.bestFireSinceCool)) - 5));
+  return Math.floor(
+    Math.max(
+      0,
+      Math.pow(
+        Math.log2(Math.max(1, state.bestFireSinceCool / 1e10)),
+        2
+      )
+    )
+  );
 }
 
 /**
