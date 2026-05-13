@@ -139,7 +139,7 @@ export function tick(state: GameState, deltaTime: number): void {
  * @returns 獲得した火の量
  */
 export function handleClickGain(state: GameState): number {
-  const gain = 1 + getFirePerSecond(state) * 0.05;
+  const gain = 1 + state.items["coal"].level + getFirePerSecond(state) * 0.05;
   state.resources.fire += gain;
   state.totalEarnedFire += gain;
   updateFireMilestones(state);
