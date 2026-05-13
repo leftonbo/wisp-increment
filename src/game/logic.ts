@@ -84,7 +84,7 @@ export function canBuy(state: GameState, itemId: ItemId): boolean {
 export function getItemProduction(state: GameState, itemId: ItemId): number {
   const item = state.items[itemId];
   if (item.count === 0) return 0;
-  return itemDefinitions[itemId].baseProduction * 2.5 ** (item.level - 1) * item.count * getPrestigeMultiplier(state);
+  return itemDefinitions[itemId].baseProduction * 3 ** (item.level - 1) * item.count * getPrestigeMultiplier(state);
 }
 
 /**
