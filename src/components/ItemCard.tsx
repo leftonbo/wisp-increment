@@ -39,7 +39,7 @@ export function ItemCard({ itemId, state, buyMode, onBuy }: ItemCardProps) {
         <div>
           <h3>{definition.name}</h3>
           <p>
-            Lv {item.level} / 個数 {item.count}
+            Lv {item.level} / 個数 {formatNumber(item.count)}
           </p>
         </div>
       </div>
