@@ -14,7 +14,7 @@ export const itemDefinitions: Record<ItemId, ItemDefinition> = {
     description: "ウィスプの基本燃料。少しずつ🔥を生む。",
     produces: "fire",
     baseCost: 10,
-    costMultiplier: 1.18,
+    costMultiplier: 10,
     unlockFire: 0,
   },
   marshmallow: {
@@ -24,7 +24,7 @@ export const itemDefinitions: Record<ItemId, ItemDefinition> = {
     description: "ウィスプの大好物。石炭になるまでよく焼く。",
     produces: "coal",
     baseCost: 100,
-    costMultiplier: 1.35,
+    costMultiplier: 100,
     unlockFire: 100,
   },
   ghost: {
@@ -34,7 +34,7 @@ export const itemDefinitions: Record<ItemId, ItemDefinition> = {
     description: "ウィスプのお友達。夜な夜なマシュマロを運んでくる。",
     produces: "marshmallow",
     baseCost: 10_000,
-    costMultiplier: 1.75,
+    costMultiplier: 1000,
     unlockFire: 10_000,
   },
   medal: {
@@ -44,7 +44,7 @@ export const itemDefinitions: Record<ItemId, ItemDefinition> = {
     description: "プッシャーゲームの景品。集めると、おばけたちが妙に元気になる。",
     produces: "ghost",
     baseCost: 1_000_000,
-    costMultiplier: 2.5,
+    costMultiplier: 10000,
     unlockFire: 1_000_000,
   },
 };
