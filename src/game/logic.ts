@@ -66,9 +66,9 @@ export function tick(state: GameState, deltaTime: number): void {
   const ghostGain = getItemProduction(state, "medal") * safeDelta;
 
   state.resources.fire += fireGain;
-  state.resources.coal += coalGain;
-  state.resources.marshmallow += marshmallowGain;
-  state.resources.ghost += ghostGain;
+  state.items.coal.count += coalGain;
+  state.items.marshmallow.count += marshmallowGain;
+  state.items.ghost.count += ghostGain;
   state.totalEarnedFire += fireGain;
 
   updateFireMilestones(state);

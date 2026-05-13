@@ -19,9 +19,9 @@ export function ResourceHeader({ state }: ResourceHeaderProps) {
       <div className="resource-grid">
         <span>❄️ {formatNumber(state.resources.frost)}</span>
         <span>生産 x{multiplier.toFixed(1)}</span>
-        <span>🪨 {formatNumber(state.resources.coal)}</span>
-        <span>🍬 {formatNumber(state.resources.marshmallow)}</span>
-        <span>👻 {formatNumber(state.resources.ghost)}</span>
+        <span>🪨 {formatNumber(state.items.coal.count)}</span>
+        <span>🍬 {formatNumber(state.items.marshmallow.count)}</span>
+        <span>👻 {formatNumber(state.items.ghost.count)}</span>
         <span>累計🔥 {formatNumber(state.totalEarnedFire)}</span>
       </div>
     </header>
