@@ -191,7 +191,7 @@ export function getNextFrost(state: GameState): number {
     Math.max(
       0,
       Math.pow(
-        Math.log2(Math.max(1, state.bestFireSinceCool / 1e10)),
+        Math.log2(Math.max(1, state.bestFireSinceCool / 1e8)),
         2
       )
     )
