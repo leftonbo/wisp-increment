@@ -16,18 +16,20 @@ export function ItemCard({ itemId, state, buyMode, onBuy }: ItemCardProps) {
   const unlocked = isUnlocked(state, itemId);
   const cost = getItemCost(state, itemId);
   const production = getItemProduction(state, itemId);
+  const producedIcon =
+    definition.produces === "fire" ? "🔥" : definition.produces === "coal" ? "🪨" : definition.produces === "marshmallow" ? "🍬" : "👻";
+  const tooltipId = `${itemId}-description`;
 
   if (!unlocked) {
     return (
       <article className="item-card item-card-locked">
         <div className="item-title">
           <span className="item-emoji">？？？</span>
-          <div>
+          <div className="item-summary">
             <h3>未発見</h3>
-            <p>なにか甘い匂いがする……</p>
+            <p>アンロック: 累計{formatNumber(definition.unlockFire)}🔥</p>
           </div>
         </div>
-        <span className="unlock-text">アンロック: 累計{formatNumber(definition.unlockFire)}🔥</span>
       </article>
     );
   }
@@ -36,24 +38,26 @@ export function ItemCard({ itemId, state, buyMode, onBuy }: ItemCardProps) {
     <article className="item-card">
       <div className="item-title">
         <span className="item-emoji">{definition.emoji}</span>
-        <div>
-          <h3>{definition.name}</h3>
+        <div className="item-summary">
+          <h3>
+            Lv.{formatNumber(item.level)} {definition.name} ({formatNumber(item.count)})
+          </h3>
           <p>
-            Lv {item.level} / 個数 {formatNumber(item.count)}
+            +{formatNumber(production)}
+            {producedIcon}/sec
           </p>
         </div>
-      </div>
-      <p className="item-description">{definition.description}</p>
-      <div className="item-meta">
-        <span>
-          生産: {formatNumber(production)}
-          {definition.produces === "fire" ? "🔥" : definition.produces === "coal" ? "🪨" : definition.produces === "marshmallow" ? "🍬" : "👻"}
-          /sec
+        <span className="item-info">
+          <button className="item-info-trigger" type="button" aria-label={`${definition.name}の説明`} aria-describedby={tooltipId}>
+            i
+          </button>
+          <span className="item-description" id={tooltipId} role="tooltip">
+            {definition.description}
+          </span>
         </span>
-        <span>コスト: {formatNumber(cost)}🔥</span>
       </div>
       <button type="button" onClick={() => onBuy(itemId)} disabled={!canBuy(state, itemId)}>
-        購入 {buyMode === "max" ? "MAX" : "x1"}
+        購入 {buyMode === "max" ? "MAX" : "x1"} · {formatNumber(cost)}🔥
       </button>
     </article>
   );
